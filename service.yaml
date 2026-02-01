@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: streamflix-service
 spec:
-  type: LoadBalancer
+  type: LoadBalancer   # ye public IP deta hai
   selector:
     app: streamflix
   ports:
   - port: 80
     targetPort: 80
-    protocol: TCP
