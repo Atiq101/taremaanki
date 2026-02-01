@@ -5,7 +5,7 @@ metadata:
   labels:
     app: streamflix
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: streamflix
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: streamflix
-        image: atiqacr007.azurecr.io/streamflix:v1
+        image: nginx:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
