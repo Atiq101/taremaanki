@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamflix-deployment
+  labels:
+    app: streamflix
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: streamflix
+  template:
+    metadata:
+      labels:
+        app: streamflix
+    spec:
+      containers:
+      - name: streamflix
+        image: atiqacr007.azurecr.io/streamflix:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+            memory: "512Mi"
+            cpu: "500m"
