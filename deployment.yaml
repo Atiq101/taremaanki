@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: streamflix
-        image: atiqacr007.azurecr.io/streamflix:v1
+        image: nginx:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
