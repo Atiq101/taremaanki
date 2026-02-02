@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: streamflix-monitor
+  namespace: monitoring   # یہاں monitoring میں رکھنا ہے
+spec:
+  selector:
+    matchLabels:
+      app: streamflix
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 15s
