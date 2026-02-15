@@ -11,7 +11,7 @@ spec:
   tls:
   - hosts:
     - taremaanki.click
-    - www.taremaanki.com
+    - www.taremaanki.click
     secretName: streamflix-tls-secret
   rules:
   - host: taremaanki.click
@@ -24,7 +24,7 @@ spec:
             name: streamflix-service
             port:
               number: 80
-  - host: www.taremaanki.com
+  - host: www.taremaanki.click
     http:
       paths:
       - path: /
