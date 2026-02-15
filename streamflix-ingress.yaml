@@ -3,10 +3,29 @@ kind: Ingress
 metadata:
   name: streamflix-ingress
   namespace: argocd
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - taremaanki.com
+    - www.taremaanki.com
+    secretName: streamflix-tls-secret
   rules:
-  - http:
+  - host: taremaanki.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: streamflix-service
+            port:
+              number: 80
+  - host: www.taremaanki.com
+    http:
       paths:
       - path: /
         pathType: Prefix
