@@ -5,7 +5,7 @@ metadata:
   labels:
     app: streamflix
 spec:
-  type: LoadBalancer
+  type: ClusterIP 
   selector:
     app: streamflix
   ports:
