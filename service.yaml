@@ -9,6 +9,6 @@ spec:
   selector:
     app: streamflix
   ports:
-    - name: metrics
+    - name: web
       port: 80
       targetPort: 80
