@@ -4,10 +4,11 @@ metadata:
   name: streamflix-ingress
   namespace: default
   annotations:
+    # Keep your existing annotations
     kubernetes.io/ingress.class: nginx
-    # Ensure redirect is false so it doesn't force you to HTTPS
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
+  ingressClassName: nginx  # <--- ADD THIS LINE
   rules:
   - host: taremaanki.click
     http:
@@ -19,13 +20,4 @@ spec:
             name: streamflix-service
             port:
               number: 80
-  - host: www.taremaanki.click
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: streamflix-service
-            port:
-              number: 80
+  # ... rest of your hosts ...
