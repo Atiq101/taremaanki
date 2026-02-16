@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: streamflix-service
+  namespace: default  # <--- THIS IS THE FIX
   labels:
     app: streamflix
 spec:
