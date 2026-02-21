@@ -5,10 +5,10 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: atiqkhilji@hotmail.com # Apna email yahan likhein
+    email: atiqkhilji@hotmail.com
     privateKeySecretRef:
       name: letsencrypt-prod
     solvers:
     - http01:
         ingress:
-          class: nginx
+          class: azure/application-gateway # AGIC ke liye yeh zaroori hai
