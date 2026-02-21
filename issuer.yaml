@@ -11,4 +11,4 @@ spec:
     solvers:
     - http01:
         ingress:
-          class: azure/application-gateway # AGIC ke liye yeh zaroori hai
+          class: azure/application-gateway # AGIC ke liye yeh zaroori haik
