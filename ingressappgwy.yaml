@@ -4,15 +4,22 @@ metadata:
   name: streamflix-ingress
   namespace: default
   annotations:
-    kubernetes.io/ingress.class: azure/application-gateway # CRITICAL FOR AGIC
+    kubernetes.io/ingress.class: azure/application-gateway
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    appgw.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
+  tls:
+  - hosts:
+    - www.taremaanki.click  # <--- SIRF domain name, http:// nahi
+    secretName: streamflix-tls-secret
   rules:
-  - http:
+  - host: www.taremaanki.click # <--- SIRF domain name
+    http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: streamflix-service # Must match service.yaml
+            name: streamflix-service
             port:
               number: 80
